@@ -19,7 +19,7 @@
 
 * Conformer结构如下图所示
 
-  ![image-20210608115500052](C:\Users\wanglichun\Desktop\TyporaPapers\images\image-20210608115500052.png)
+  ![image-20210608115500052](..\images\image-20210608115500052.png)
 
   
 
