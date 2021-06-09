@@ -17,7 +17,7 @@
 
 * Transformer architecture based on self-attention [6, 7] has enjoyed widespread adoption for modeling  sequences due to its ability to capture long distance interactions and the high training efficiency
 
-* Conformer结构如下图所示
+* Conformer结构如下图所示,==需要注意的是，在conformer Blocks前面，conv subsampling 做了一个4倍的采样，所以从开始的10ms编导了40ms的rate==
 
   ![image-20210608115500052](..\images\image-20210608115500052.png)
 
@@ -33,13 +33,13 @@
 * multi-head attention + ==sinusoidal positional encoding==
 * pre-norm 如下图，可帮助训练更深的网络。
 
-![image-20210608142026030](C:\Users\wanglichun\Desktop\TyporaPapers\images\image-20210608142026030.png)
+![image-20210608142026030](..\images\image-20210608142026030.png)
 
 ### Convolution Module
 
 * 卷积结构如下：Inspired by 《Lite transformer with long-short range attention》，==为啥这么设计，本论文没说，引用的论文里不知道有没有说明==
 
-  ![image-20210608142447775](C:\Users\wanglichun\Desktop\TyporaPapers\images\image-20210608142447775.png)
+  ![image-20210608142447775](..\images\image-20210608142447775.png)
 
 ### Feed Forward Module
 
@@ -47,14 +47,14 @@
 * layer normal
 * Swish activation and dropout
 
-![image-20210608142834380](C:\Users\wanglichun\Desktop\TyporaPapers\images\image-20210608142834380.png)
+![image-20210608142834380](..\images\image-20210608142834380.png)
 
 ### Conformer Block
 
 * 整个结构的灵感来源于macaron-Net《Understanding and improving transformer from a multi-particle dynamic system point of view》，proposes replacing the original feed-forward layer in the Transformer block into two half-step feed-forward layers, one before the attention layer and one after
 * 数学表达就是如下：
 
-![image-20210608143303270](C:\Users\wanglichun\Desktop\TyporaPapers\images\image-20210608143303270.png)
+![image-20210608143303270](..\images\image-20210608143303270.png)
 
 ## Experiments
 
@@ -65,10 +65,10 @@
 
 * 3 scale models,   use a single-LSTM-layer decoder in all our models, as follow
 
-![image-20210608144131715](C:\Users\wanglichun\Desktop\TyporaPapers\images\image-20210608144131715.png)
+![image-20210608144131715](..\images\image-20210608144131715.png)
 
 * 3-layer LSTM language model
-* ![image-20210608144907737](C:\Users\wanglichun\Desktop\TyporaPapers\images\image-20210608144907737.png)
+* ![image-20210608144907737](..\images\image-20210608144907737.png)
 * 
 
 
@@ -79,7 +79,7 @@
 
 * 如下图可见，在一点点的减少conformer的组件之后，发现conv是影响比较大的，其次Swish以及ffn也有一定的影响。
 
-![image-20210608145422885](C:\Users\wanglichun\Desktop\TyporaPapers\images\image-20210608145422885.png)
+![image-20210608145422885](..\images\image-20210608145422885.png)
 
 #### Combinations of Convolution and Transformer Modules
 
@@ -89,23 +89,23 @@
 
 * conv 与 multi-head atten  并行， worse
 
-  ![image-20210608150049510](C:\Users\wanglichun\Desktop\TyporaPapers\images\image-20210608150049510.png)
+  ![image-20210608150049510](..\images\image-20210608150049510.png)
 
   #### Macaronn Feed Forward Modules
 
-  ![image-20210608150241915](C:\Users\wanglichun\Desktop\TyporaPapers\images\image-20210608150241915.png)
+  ![image-20210608150241915](..\images\image-20210608150241915.png)
 
   #### Number of Attention Heads
 
   * 增加head数量到16，在other上面表现会略有提升。
 
-  ![image-20210608151407957](C:\Users\wanglichun\Desktop\TyporaPapers\images\image-20210608151407957.png)
+  ![image-20210608151407957](..\images\image-20210608151407957.png)
 
 #### convolution Kernel Sizes
 
 * kernel size = 32 ，效果比较好
 
-![image-20210608151716434](C:\Users\wanglichun\Desktop\TyporaPapers\images\image-20210608151716434.png)
+![image-20210608151716434](..\images\image-20210608151716434.png)
 
 ##  总结
 
