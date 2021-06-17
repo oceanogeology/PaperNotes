@@ -74,13 +74,13 @@ https://developer.aliyun.com/article/704173
 
 论文：Attention is all you need 2017
 
-Transformer-based Acoustic Modeling for Hybrid Speech Recognition  2019 (transformer for hybrid ASR)
+==Transformer-based Acoustic Modeling for Hybrid Speech Recognition  2019 (transformer for hybrid ASR)==
 
 说明：当前的主流结构，多层自注意，擅长提取长序列依赖，可并行计算，容易忽略位置信息
 
 #### 6) conformer
 
-论文：Conformer: Convolution-augmented Transformer for Speech Recognition 2020
+==论文：Conformer: Convolution-augmented Transformer for Speech Recognition 2020==
 
 相关：https://zhuanlan.zhihu.com/p/319881884
 

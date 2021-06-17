@@ -64,7 +64,7 @@
 ### Effect of Positional Embedding
 
 * 对比了3种 position embedding的效果
-* conv： 2 vgg blocks，==这个具体的方式，需要探究一下，论文中没有详细讲清楚==
+* conv： 2 vgg blocks，这个效果最好，==这个具体的方式，需要探究一下，论文中没有详细讲清楚==
 
 ![image-20210607193050018](C:\Users\wanglichun\AppData\Roaming\Typora\typora-user-images\image-20210607193050018.png)
 

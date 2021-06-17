@@ -17,7 +17,7 @@
 
 * Transformer architecture based on self-attention [6, 7] has enjoyed widespread adoption for modeling  sequences due to its ability to capture long distance interactions and the high training efficiency
 
-* Conformer结构如下图所示,==需要注意的是，在conformer Blocks前面，conv subsampling 做了一个4倍的采样，所以从开始的10ms编导了40ms的rate==
+* Conformer结构如下图所示,==需要注意的是，在conformer Blocks前面，conv subsampling 做了一个4倍的采样，所以从开始的10ms变到了40ms的rate==
 
   ![image-20210608115500052](..\images\image-20210608115500052.png)
 
@@ -87,7 +87,7 @@
 
 * place conv before multi-head-attention, degrade 0.1
 
-* conv 与 multi-head atten  并行， worse
+* 尝试conv 与 multi-head atten  并行处理， worse
 
   ![image-20210608150049510](..\images\image-20210608150049510.png)
 
