@@ -188,7 +188,7 @@ RNNT：结构encoder+rnnt，骨干RNN
 
 Youtube咖喱味解读：https://www.youtube.com/watch?v=DUVC_4LBHf4
 
-
+## 6）MWERloss
 
 ### 预训练
 
