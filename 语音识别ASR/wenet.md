@@ -44,13 +44,13 @@
 
 * shared encoder + ctc decoder + attention decoder, attention decoder 对ctc decoder进行rescore
 
-![image-20210707194535188](C:\Users\wanglichun\Desktop\TyporaPapers\images\image-20210707194535188.png)
+![image-20210707194535188](..\images\image-20210707194535188.png)
 
 * training loss:
 
   
 
-![image-20210707194645193](C:\Users\wanglichun\Desktop\TyporaPapers\images\image-20210707194645193.png)
+![image-20210707194645193](..\images\image-20210707194645193.png)
 
 * use chunk technique to unify the non-streaming and streaming model
 
@@ -68,7 +68,7 @@
 
 ### 系统结构：
 
-![image-20210707200806038](C:\Users\wanglichun\Desktop\TyporaPapers\images\image-20210707200806038.png)
+![image-20210707200806038](..\images\image-20210707200806038.png)
 
 * Torchaudio 直接提取特征，不需要kaldi先保存好
 * Joint CTC  / AED training
@@ -79,11 +79,21 @@
 
 * 数据集： AISHELL-1, 150小时training set
 * 融合top-k的模型
-* 下表，M1采用非流式训练， M2采用chunk训练，4,8,16代表chunk的尺寸。attention_rescoring基本可以涨点。
+* 下表，M1采用非流式训练， M2采用chunk训练，4,8,16代表chunk的尺寸。attention_rescoring基本可以涨点。ctc_greedy_search和ctc_prefix_beam_search结果基本相近，并且随着chunk size的减少，性能下降明显。
 
-![image-20210707202405261](C:\Users\wanglichun\Desktop\TyporaPapers\images\image-20210707202405261.png)
+![image-20210707202405261](..\images\image-20210707202405261.png)
 
-* 
+* 实时率 RTF ，chunk越小实时率越高，并且量化可以带来一定的提升，当量化的效果并没有明显的降低。
+
+  ![image-20210708094924667](..\images\image-20210708094924667.png)
+
+  ![image-20210708095029009](..\images\image-20210708095029009.png)
+
+  
+
+  * Latency，就放个图吧，反正挺快的
+
+    ![image-20210708103120454](..\images\image-20210708103120454.png)
 
 
 ## 代码理解
