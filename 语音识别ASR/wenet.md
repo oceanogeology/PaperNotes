@@ -116,5 +116,5 @@
 
 论文待看：
 
-《Unified Streaming and Non-streaming Two-pass End-to-end Model for Speech Recognitio你》
+《Unified Streaming and Non-streaming Two-pass End-to-end Model for Speech Recognition》
 

@@ -16,5 +16,6 @@
 
 * ==生成json==  ./data2json.sh --feat /opt/espnet/egs/xx/xmuspeech/data/train/feats.scp /opt/espnet/egs/xx/xmuspeech/data/train/  /opt/espnet/egs/xx/xmuspeech/data/lang_1_char/train_units.txt >  ./data/train_data.json
 
-  
+
+
 

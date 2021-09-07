@@ -28,7 +28,7 @@
 
 * 总体结构如下图，包含：Listenr,Decoder,Speller
 
-![image-20210623193953984](C:\Users\wanglichun\Desktop\TyporaPapers\images\image-20210623193953984.png)
+![image-20210623193953984](..\images\image-20210623193953984.png)
 
 
 
