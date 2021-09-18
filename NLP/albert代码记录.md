@@ -65,3 +65,10 @@ AlbertModel(
 
 ![image-20210906171600477](C:\Users\wanglichun\Desktop\TyporaPapers\images\image-20210906171600477.png)
 
+
+
+bert在训练中为了并行化，是将变长的数据，==通过pad到相同长度==，进行的训练。
+
+bert中的word_embedding 的 size是  vocab_size * embedding_size
+
+embedding 是一个 lookup table过程：A simple lookup table that stores embeddings of a fixed dictionary and size.
