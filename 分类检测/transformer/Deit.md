@@ -29,7 +29,7 @@ github: https://github.com/facebookresearch/deit
 ## Distillation through attention
 
 - soft distillation
-- hard-label distillation: 就是在soft的基础上，取了一个argmax。另外利用distillation得到的伪标签还有一个作用，=就是屏蔽掉在训练中由于augment带来的标签错误的问题。==
+- hard-label distillation: 就是在soft的基础上，取了一个argmax。另外利用distillation得到的伪标签还有一个作用，==就是屏蔽掉在训练中由于augment带来的标签错误的问题。==
 - distillation token: 本文创新点：Deit在最后面插入了一个distillation token,然后利用这个token来进行蒸馏loss的计算, 这个token也是learnable的
 - inference阶段，利用这两个token的预测结果进行融合。
 - ==这个启发倒是可以在我们的项目中试试看，这样的多分支蒸馏的效果还真没==

@@ -57,7 +57,7 @@ Author : liu Ze
 * swin选择在windows中计算self-attention 每个windows包含多个patches.
 * 但是在window中计算attention也存在一个问题，就是缺乏window间的交互，所以作者提出了如下的shift window方法。
 * 但是上面的方法依然存在问题，在window shift之后，window的数量会增加，因为出现了不满足窗口大小的的windows. 这里作者提出了cyclic-shifting 方法。如下图，函数就是==torch.roll实现==，这样在计算atten的时候，将移动的地方mask掉就可以了，不影响计算量。 ==shift是交替进行的，这里如果我没有理解错，就是shift windows内patch数量的一半，win内patch的数量默认为7，这样随着层数加深的merge操作，shift的越来越多，可以理解为感受野越来越大==
-* 
+* 在代码中，这种交互在不同的block中是交替进行的。
 
 ![image-20211019153516460](C:\Users\wanglichun\Desktop\Typera\TyporaPapers\images\image-20211019153516460.png)
 

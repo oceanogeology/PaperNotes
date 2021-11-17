@@ -1,5 +1,9 @@
 # AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE
 
+> 这是一个比较有代表性的，将transformer引入cv的一个例子，其也没有特别的想法，主要创新点就是通过对图像进行patch的提取，进而构建了类似NLP的任务，然后将bert代码搬过来，进行图像的分类。
+
+---
+
 Author: Alexey Dosovitskiy
 
 Google Brain

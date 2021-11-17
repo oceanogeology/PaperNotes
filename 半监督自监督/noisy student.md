@@ -10,7 +10,7 @@
 ## Introduction
 
 - noisy student 工作的两个主要因素： 1、student 更大； 2、student 更难。（加了很多noisy data, randaug, dropout, stochastic depth）
-- teacher打标，可以是softlabel 也可以是hard label， softlabel 更好
+- teacher打标，可以是softlabel 也可以是hard label， ==softlabel 更好==
 
 ## Noisy Student Training
 
@@ -24,7 +24,7 @@
 
 - 主要点是使用 Data augmentation 以及 Dropout + Stochastic depth等
 - filtering and balancing, filtering就是将置信度低的图像去掉， balancing就是平衡不同类别的数据。作者在论文中举例，利用teacher打标后，每个类别挑选130k的图像，多的卡阈值，不够的使用复制粘贴的方法。
-- resolution discrepancy; 先在小分辨率图像上面训练350个epoch，然后使用大分辨率图像finetune 1.5epoch，不使用augment  同时 fix 浅层layer。
+- ==resolution discrepancy==; 先在小分辨率图像上面训练350个epoch，然后使用大分辨率图像finetune 1.5epoch，不使用augment  同时 fix 浅层layer。
 - iterative training: 作者迭代了3次， efficientnet-b7 -> efficientnet-l2 -> efficientnet-l2 
 - ==实验证明，即使不使用iterative training；只是noisy train 也是会有效果的==
 - ![image-20210922190823302](C:\Users\wanglichun\Desktop\Typera\TyporaPapers\images\image-20210922190823302.png)
