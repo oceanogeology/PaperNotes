@@ -16,13 +16,13 @@ https://github.com/facebookresearch/moco
 
 ## Introduction
 
-- 相比较语言任务，视觉任务的更关注与字典的建立，因为原始信号是连续的高维空间，是没有结构的。
+- 相比较语言任务，视觉任务的更关注字典本身的建立，因为原始信号是连续的高维空间，是没有结构的，而语言任务则是词典的查询。
 - contrastive loss
 - 以前的方法，主要是建立动态的字典，字典中的key是从数据（image or patch）中采样的,然后用一个encoder来表示。 encoder用来完成字典查找的过程，query encoder应该匹配相同的key，不匹配其他，学习的过程就是最小化contrastive loss的过程。
 - 所以，这个字典得大，并且在训练过程中是具有连续性的
 - 本文提出方法如下图
 
-![image-20211109162238989](C:\Users\wanglichun\Desktop\Typera\TyporaPapers\images\image-20211109162238989.png)
+![image-20211109164140087](..\images\image-20220901103638077.png)
 
 ## Related Work
 
@@ -34,11 +34,15 @@ https://github.com/facebookresearch/moco
 
 * 相似度的度量用点积，所以本文的对正负样本相似度的度量的loss函数如下：t是温度系数。简单点看，就是在k+1维的softmax-based classifier中，把q预测成k+的概率
 
-  ![image-20211109164140087](C:\Users\wanglichun\Desktop\Typera\TyporaPapers\images\image-20211109164140087.png)
+* InfoNCE可以看成q预测成k+的概率，再做softmax，然后取-log。和CEloss很类似。
 
-- query representation 可以是$q=f_q(x^q)$ 输入的可以是image 也可以是patch 也可以是 patches， 两个encoder可以是相同的，可以是共享的，也可以是不同的。
+  ![image-20211109164140087](..\images\image-20220902104740765.png)
+  
+  - CEloss是把一个样本预测成该类的概率，再做softmax（非负，和为1），然后取-log。
+  
+  ![img](..\images\2d73ef96c2da42ebba14727d941d4ca8.png)
 
-- 
+
 
 ### Momentum contrast 
 
@@ -46,7 +50,7 @@ https://github.com/facebookresearch/moco
 - 弄了个队列，来扩大字典的容量，新数据进队列，outdate数据出队列。
 - 用队列可以扩大字典量，但是却限制了key encoder的更新,那怎么办？一个简单的解决方式是，直接copy query encoder to key encoder，但实验显示效果不好，可能是key encoder更新太快了，破坏了连续性。
 - 本文是怎么干的呢？主要问题还是让key encoder更新的慢一点，所以就采用了动量的方式，每次梯度只更新query encoder，key encoder通过query的更新进行计算，公式如下，并且实验证明，动量越大，效果越好，e.g. m=0.999比m=0.9要好，说明更新的越慢越好。
-- ![image-20211109174727800](C:\Users\wanglichun\Desktop\Typera\TyporaPapers\images\image-20211109174727800.png)
+- ![image-20211109174727800](..\images\image-20220902135226210.png)
 - 该方法的好处，1.可以使用大量的数据，亿级别也不在话下，2.保证了更新的连续性。
 
 ### Pretext Task
@@ -61,11 +65,12 @@ https://github.com/facebookresearch/moco
 ### shuffling BN（小trick）
 
  - 传统的BN效果不是很好。
+ - 因为f_q的encoder和f_k的encoder来自于动量更新，f_q和f_k来自同一条数据的不同aug，常规BN操作会是得f_q和f_k的BN统计信息很接近，故此shuffle f_k的BN信息，就不会在f_q中找到这些信息了。
  - 因为是采用分布式进行的训练，所以数据会被分配到多块卡上，shuffling bn计算bn只在每块卡上单独计算。同时对于一批数据，对于key encoder，moco先把数据shuffle掉，然后在放到gpu过key encoder,但是query encoder并没有shuffle，这就导致key和query是跟不同的数据做的bn，解决了bn导致的数据内部通信减少了数据分辨信息的问题。
 
 ### 伪代码
 
-![image-20211109194215614](C:\Users\wanglichun\Desktop\Typera\TyporaPapers\images\image-20211109194215614.png)
+![image-20211109194215614](..\images\image-20220902135515703.png)
 
 ## Exp
 

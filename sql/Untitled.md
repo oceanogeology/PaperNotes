@@ -1,0 +1,4 @@
+[SQL怎么实现模糊查询_学而不思则忘的博客-CSDN博客_sql模糊查询](https://floweryu.blog.csdn.net/article/details/110747671?spm=1001.2101.3001.6650.2&utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-2-110747671-blog-114847430.pc_relevant_multi_platform_whitelistv1_exp2&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-2-110747671-blog-114847430.pc_relevant_multi_platform_whitelistv1_exp2&utm_relevant_index=5)
+
+[SQL实现模糊查询的几种方法总结_Whitemeen太白的博客-CSDN博客_sql 模糊查询](https://blog.csdn.net/demo_yo/article/details/114847430?spm=1001.2101.3001.6650.5&utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-5-114847430-blog-86763679.pc_relevant_aa&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-5-114847430-blog-86763679.pc_relevant_aa)
+
