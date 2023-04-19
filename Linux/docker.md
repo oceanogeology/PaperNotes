@@ -1,5 +1,27 @@
 # Docker骚操作集锦
 
+安装docker
+
+```
+docker:
+https://www.cnblogs.com/chentiao/p/16999479.html#:~:text=%282%29%E5%AE%89%E8%A3%85nvidia-docker%20%282.1%29%E8%AE%BE%E7%BD%AEstable%E5%AD%98%E5%82%A8%E5%BA%93%E5%92%8C%E5%AF%86%E9%92%A5%20%23%20%E6%B3%A8%E6%84%8F%E6%AD%A4%E6%AD%A5%E9%AA%A4%E5%8F%AF%E8%83%BD%E6%97%A0%E6%B3%95%E4%B8%8B%E8%BD%BD%EF%BC%8C%E9%9C%80%E8%A6%81%E6%89%8B%E5%8A%A8%E5%8E%BB%E7%BD%91%E9%A1%B5%E4%B8%8B%E8%BD%BD%EF%BC%8C%E7%84%B6%E5%90%8E%E4%BD%BF%E7%94%A8apt-key%20add%20%E8%BD%BD%E5%85%A5%20%24%20curl,apt-key%20add%20-%20%24%20distribution%3D%24%20%28.%20%2Fetc%2Fos-release%3Becho%20%24ID%24VERSION_ID%29
+https://blog.csdn.net/qq_45495857/article/details/113743109
+https://blog.csdn.net/qq_36698189/article/details/115607886
+https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/
+https://blog.csdn.net/qq_32526087/article/details/105961447
+https://blog.csdn.net/gezongbo/article/details/121056781
+# 安装docker
+https://blog.csdn.net/qq_45220508/article/details/126628697
+sudo apt install docker.io
+
+https://blog.csdn.net/qq_40309341/article/details/119133527
+https://blog.csdn.net/qq_44668297/article/details/128384491
+https://blog.csdn.net/qq_41707448/article/details/124025409
+https://blog.csdn.net/qq_15262755/article/details/91722501
+```
+
+
+
 Docker学习教程： https://www.runoob.com/docker/docker-hello-world.html ；https://docs.docker.com/engine/reference/commandline/images/；http://doc.hz.netease.com/pages/viewpage.action?pageId=261792775
 
 ### 1. Docker 常用命令
